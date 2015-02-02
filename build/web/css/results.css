@@ -1,0 +1,99 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 28, 2015, 6:05:36 PM
+    Author     : xnikos
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Laila:400,700);
+
+html { overflow-y: scroll; }
+
+br { display: block; line-height: 1.6em; } 
+
+strong, b { font-weight: bold; }
+em, i { font-style: italic; }
+
+h1 {
+  display: block;
+  font-size: 3.1em;
+  line-height: 1.45em;
+  font-family: 'Laila', serif;
+  text-align: center;
+  font-weight: bold;
+  color: #006699;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+#wrapper {
+    width: 820px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+    font-family: 'Laila', serif;
+}
+
+h2 {
+  display: block;
+  font-size: 2.1em;
+  line-height: 1.25em;
+  font-family: 'Laila', serif;
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+h3 {
+  display: block;
+  font-size: 1.25em;
+  line-height: 1.1em;
+  font-family: serif;
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+h4 {
+  display: block;
+  font-size: .85em;
+  line-height: 1em;
+  font-family: serif;
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+a:link, a:visited { 
+    color: #4169e1;
+    text-decoration: underline;
+    cursor: auto;
+}
+
+a:link:active, a:visited:active { 
+    color: #4169e1;
+}
+
+.menu > li {
+    display:inline-block;
+    font-weight:bold;
+    padding:6px 10px;
+    cursor:pointer;
+    border:2px solid #4169e1;
+    margin:5px;
+}
+.container {
+    border:2px solid black;
+    margin:5px;
+}
+.container > div {
+    display:none;
+}
+.container > div:first-child {
+    display:block;
+}

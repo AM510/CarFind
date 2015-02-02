@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--
+
+*Dynamic dropdown form, taken from http://javascript.about.com/library/bldydrop1.htm and modified
+*Template for form, taken from http://www.designsave.com/2014/08/responsive-html5-login-forms-free.html and modified
+*Random image script, taken from http://www.javascriptkit.com/script/cut118.shtml and modified.
+
+-->
+
+<head>
+    <meta charset='UTF-8'>
+    <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
+
+    <title>CarFinder: Car Advertisements Graphs</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script>
+        function setOptions(chosen) {
+            var selbox = document.myform.model;
+            selbox.options.length = 0;
+            if (chosen == "") {
+                selbox.options[selbox.options.length] = new Option('Please select', '');
+            }
+            if (chosen == "audi") {
+                selbox.options[selbox.options.length] = new
+                        Option('A3', 'a3');
+                selbox.options[selbox.options.length] = new
+                        Option('A4', 'a4');
+                        selbox.options[selbox.options.length] = new
+                        Option('A5', 'a5');
+                        selbox.options[selbox.options.length] = new
+                        Option('A6', 'a6');
+                        selbox.options[selbox.options.length] = new
+                        Option('TT', 'tt');
+                        selbox.options[selbox.options.length] = new
+                        Option('Q3', 'q3');
+                        selbox.options[selbox.options.length] = new
+                        Option('Q5', 'q5');
+                        selbox.options[selbox.options.length] = new
+                        Option('Q7', 'q7');
+            }
+            if (chosen == "bmw") {
+                selbox.options[selbox.options.length] = new
+                        Option('116', '116');
+                        selbox.options[selbox.options.length] = new
+                        Option('118', '118');
+                        selbox.options[selbox.options.length] = new
+                        Option('120', '120');
+                        selbox.options[selbox.options.length] = new
+                        Option('316', '316');
+                selbox.options[selbox.options.length] = new
+                        Option('320', '320');
+                        selbox.options[selbox.options.length] = new
+                        Option('335', '335');
+                        selbox.options[selbox.options.length] = new
+                        Option('520', '520');
+                        selbox.options[selbox.options.length] = new
+                        Option('535', '535');
+                        selbox.options[selbox.options.length] = new
+                        Option('630', '630');
+                        selbox.options[selbox.options.length] = new
+                        Option('645', '645');
+                        selbox.options[selbox.options.length] = new
+                        Option('735', '735');
+                        selbox.options[selbox.options.length] = new
+                        Option('740', '740');
+                        selbox.options[selbox.options.length] = new
+                        Option('750', '750');
+            }
+            if (chosen == "honda") {
+                selbox.options[selbox.options.length] = new
+                        Option('CR-V', 'cr-v');
+                selbox.options[selbox.options.length] = new
+                        Option('Jazz', 'jazz');
+            }
+            if (chosen == "mercedes") {
+                selbox.options[selbox.options.length] = new
+                        Option('A140', 'a_140');
+                        selbox.options[selbox.options.length] = new
+                        Option('A160', 'a_160');
+                        selbox.options[selbox.options.length] = new
+                        Option('A180', 'a_180');
+                selbox.options[selbox.options.length] = new
+                        Option('E200', 'e_200');
+                selbox.options[selbox.options.length] = new
+                        Option('SLK200', 'slk_200');
+            }
+            if (chosen == "nissan") {
+                selbox.options[selbox.options.length] = new
+                        Option('Juke', 'juke');
+                selbox.options[selbox.options.length] = new
+                        Option('Qashqai', 'qashqai');
+            }
+            if (chosen == "toyota") {
+                selbox.options[selbox.options.length] = new
+                        Option('Auris', 'auris');
+                selbox.options[selbox.options.length] = new
+                        Option('Yaris', 'yaris');
+            }
+            if (chosen == "volkswagen") {
+                selbox.options[selbox.options.length] = new
+                        Option('Polo', 'polo');
+                selbox.options[selbox.options.length] = new
+                        Option('Golf', 'golf');
+                selbox.options[selbox.options.length] = new
+                        Option('Touareg', 'touareg');
+                selbox.options[selbox.options.length] = new
+                        Option('Tiguan', 'tiguan');
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <center>
+        <script language="JavaScript">
+            function random_imglink() {
+                var myimages = new Array();
+                //specify random images below. You can have as many as you wish
+                var i;
+                for(i=1; i<29; i++) {
+                    myimages[i] = "img/index_cars/" + i.toString() + ".png";
+                }
+                var ry = Math.floor(Math.random() * myimages.length);
+                if (ry == 0)
+                    ry = 1;
+                document.write('<img src="' + myimages[ry] + '" border=0>');
+            }
+            random_imglink()
+        </script>
+        </center>
+        <form name="myform" method="POST" action="Processing">
+
+            <div class="col-2">
+                <label>Choose Car<br><br>Manufacturer
+                    <select name="manuf" size="1" onchange="setOptions(document.myform.manuf.options[document.myform.manuf.selectedIndex].value);">
+                        <option value="" selected="selected">Please Select</option>
+                        <option value="audi">Audi</option>
+                        <option value="bmw">BMW</option>
+                        <option value="honda">Honda</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="nissan">Nissan</option>
+                        <option value="toyota">Toyota</option>
+                        <option value="volkswagen">Volkswagen</option>
+
+                    </select>
+                </label>
+                <label>Model
+                    <select name="model" size="1">
+                        <option value=" " selected="selected">Please select manufacturer first</option>
+                    </select>
+                </label>
+
+            </div>
+            <div class="col-2">
+                <label>First Registration<br><br>From:
+                    <select name="fromYear">
+                        <option value="">Year</option>
+                        <option value="1994">1994</option>
+                        <option value="1995">1995</option>
+                        <option value="1996">1996</option>
+                        <option value="1997">1997</option>
+                        <option value="1998">1998</option>
+                        <option value="1999">1999</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                    </select>
+                </label>
+                <label>To:
+                    <select name="toYear">
+                        <option value="">Year</option>
+                        <option value="1995">1995</option>
+                        <option value="1996">1996</option>
+                        <option value="1997">1997</option>
+                        <option value="1998">1998</option>
+                        <option value="1999">1999</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                    </select>
+                </label>
+            </div>
+            <div class="col-3">
+                <label>Engine Size (CC)<br><br>From:
+                    <select name="fromCC">
+                        <option value="">CC</option>
+                        <option value="1000">1000</option>
+                        <option value="1200">1200</option>
+                        <option value="1400">1400</option>
+                        <option value="1600">1600</option>
+                        <option value="1800">1800</option>
+                        <option value="2000">2000</option>
+                        <option value="2200">2200</option>
+                        <option value="2500">2500</option>
+                        <option value="3000">3000</option>
+                    </select>
+                </label>
+                <label>To:
+                    <select name="toCC">
+                        <option value="">CC</option>
+                        <option value="1000">1000</option>
+                        <option value="1200">1200</option>
+                        <option value="1400">1400</option>
+                        <option value="1600">1600</option>
+                        <option value="1800">1800</option>
+                        <option value="2000">2000</option>
+                        <option value="2200">2200</option>
+                        <option value="2500">2500</option>
+                        <option value="3000">3000</option>
+                    </select>
+                </label>
+            </div>
+            <div class="col-3">
+
+                <label>Kilometers<br><br>From:
+                    <select name="fromKlm">
+                        <option value="">Klm</option>
+                        <option value="0">0</option>
+                        <option value="10000">10000</option>
+                        <option value="20000">20000</option>
+                        <option value="30000">30000</option>
+                        <option value="40000">40000</option>
+                        <option value="50000">50000</option>
+                        <option value="60000">60000</option>
+                        <option value="70000">70000</option>
+                        <option value="80000">80000</option>
+                        <option value="100000">100000</option>
+                        <option value="120000">120000</option>
+                        <option value="150000">150000</option>
+                        <option value="200000">200000</option>
+                    </select>
+                </label>
+                <label>To:
+                    <select name="toKlm">
+                        <option value="">Klm</option>
+                        <option value="0">0</option>
+                        <option value="10000">10000</option>
+                        <option value="20000">20000</option>
+                        <option value="30000">30000</option>
+                        <option value="40000">40000</option>
+                        <option value="50000">50000</option>
+                        <option value="60000">60000</option>
+                        <option value="70000">70000</option>
+                        <option value="80000">80000</option>
+                        <option value="100000">100000</option>
+                        <option value="120000">120000</option>
+                        <option value="150000">150000</option>
+                        <option value="200000">200000</option>
+                    </select>
+                </label>
+            </div>
+            <div class="col-3">
+                <label>Price <br><br>From:
+                    <select name="fromPrice">
+                        <option value="1">Price</option>
+                        <option value="1">0</option>
+                        <option value="1000">1000</option>
+                        <option value="2000">2000</option>
+                        <option value="3000">3000</option>
+                        <option value="4000">4000</option>
+                        <option value="5000">5000</option>
+                        <option value="6000">6000</option>
+                        <option value="7000">7000</option>
+                        <option value="8000">8000</option>
+                        <option value="9000">9000</option>
+                        <option value="10000">10000</option>
+                        <option value="12500">12500</option>
+                        <option value="15000">15000</option>
+                        <option value="17500">17500</option>
+                        <option value="20000">20000</option>
+                        <option value="25000">25000</option>
+                        <option value="30000">30000</option>
+                    </select>
+                </label>
+                <label>To:
+                    <select name="toPrice">
+                        <option value="">Price</option>
+                        <option value="1000">1000</option>
+                        <option value="2000">2000</option>
+                        <option value="3000">3000</option>
+                        <option value="4000">4000</option>
+                        <option value="5000">5000</option>
+                        <option value="6000">6000</option>
+                        <option value="7000">7000</option>
+                        <option value="8000">8000</option>
+                        <option value="9000">9000</option>
+                        <option value="10000">10000</option>
+                        <option value="12500">12500</option>
+                        <option value="15000">15000</option>
+                        <option value="17500">17500</option>
+                        <option value="20000">20000</option>
+                        <option value="25000">25000</option>
+                        <option value="30000">30000</option>
+                    </select>
+                </label>
+            </div>
+            <div class="col-submit">
+
+                <input class="submitbtn" type="Submit">
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

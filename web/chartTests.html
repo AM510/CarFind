@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" media="all" href="css/results.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript"
+                src="https://www.google.com/jsapi?autoload={
+                'modules':[{
+                'name':'visualization',
+                'version':'1',
+                'packages':['corechart']
+                }]
+        }"></script>
+
+        <script type="text/javascript">
+                    google.setOnLoadCallback(drawChart);
+                    function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                            ['Engine Size', 'Avg. Price', 'Min. Price'],
+ [ '3200',    46951,    5900],
+ [ '2000',    8368,    2000],
+ [ '1998',    110428,    5000],
+ [ '1995',    144980,    5900],
+ [ '1984',    36185,    5300],
+ [ '1968',    34419,    6500],
+ [ '1964',    191900,    6000],
+ [ '1900',    34187,    3900],
+ [ '1896',    97869,    7250],
+ [ '1868',    167070,    6999],
+ [ '1800',    515,    50],
+ [ '1799',    83950,    19915],
+ [ '1796',    52275,    2000],
+ [ '1792',    69540,    13500],
+ [ '1781',    42100,    3500],
+ [ '1601',    104220,    3000],
+ [ '1600',    307,    900],
+ [ '1598',    9310,    4000],
+ [ '1597',    86700,    3500],
+ [ '1595',    3757,    1990],
+ [ '1590',    48750,    1900],
+ [ '1586',    82768,    18500],
+ [ '1560',    69650,    15450],
+ [ '1400',    748,    5000],
+ [ '1398',    75615,    11900],
+ [ '1396',    13225,    17500],
+ [ '1395',    55800,    23500],
+ [ '1390',    6828,    9999],
+ [ '1200',    6971,    13700],
+ [ '1197',    56500,    16500],
+ [ '1196',    46900,    17500],
+ [ '180',    43090,    4000],
+ [ '14',    63100,    17500]
+                    ]);
+                            var options = {
+                            title: 'CC / Price',
+                                    curveType: 'function',
+                                    legend: { position: 'bottom' }
+                            };
+                            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+                            chart.draw(data, options);
+                    }
+        </script>
+    </head>
+    <body>
+        <div>            <div id="curve_chart" style="width: 800px; height: 440px;"></div>
+            <br><br>
+            <a href="fadfs">afasdf ff aafsd</a>
+</div>
+    </body>
+</html>
